@@ -17,7 +17,7 @@
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://armando_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+        <box size="0.10 0.10 0.035"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -43,7 +43,7 @@
     </visual>
     <collision>
       <geometry>
-          <mesh filename="package://armando_description/meshes/base_turn.stl" scale="0.001 0.001 0.001"/>
+          <box size="0.08 0.08 0.05"/>
         </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>   
@@ -70,7 +70,7 @@
     </visual>
     <collision>
       <geometry>
-          <mesh filename="package://armando_description/meshes/base_turn_table_rot.stl" scale="0.001 0.001 0.001"/>
+          <box size="0.08 0.08 0.04"/>
         </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -97,7 +97,7 @@
     </visual>
     <collision>
       <geometry>
-          <mesh filename="package://armando_description/meshes/dyn.stl" scale="0.01 0.01 0.01"/>
+          <box size="0.09 0.04 0.010"/>
         </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -135,7 +135,7 @@
     </visual>
     <collision>
       <geometry>
-          <mesh filename="package://armando_description/meshes/f4_n_f3.stl" scale="0.001 0.001 0.001"/>
+          <box size="0.06 0.025 0.025"/>
         </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -160,7 +160,7 @@
     </visual>
     <collision>
       <geometry>
-          <mesh filename="package://armando_description/meshes/dyn.stl" scale="0.01 0.01 0.01"/>
+          <box size="0.12 0.06 0.06"/>
         </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -198,7 +198,7 @@
     </visual>
     <collision>
       <geometry>
-          <mesh filename="package://armando_description/meshes/f4_n_f3.stl" scale="0.001 0.001 0.001"/>
+          <box size="0.06 0.025 0.025"/>
         </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -224,7 +224,7 @@
     </visual>
     <collision>
       <geometry>
-          <mesh filename="package://armando_description/meshes/dyn.stl" scale="0.01 0.01 0.01"/>
+          <box size="0.03 0.03 0.06"/>
         </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -263,7 +263,7 @@
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://armando_description/meshes/wrist.stl" scale="0.001 0.001 0.001"/>
+        <box size="0.04 0.03 0.03"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -289,7 +289,7 @@
     </visual>
     <collision>
       <geometry>
-          <mesh filename="package://armando_description/meshes/dyn.stl" scale="0.01 0.01 0.01"/>
+          <box size="0.03 0.03 0.06"/>
         </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -328,7 +328,7 @@
     </visual>
     <collision>
       <geometry>
-          <mesh filename="package://armando_description/meshes/the_crawer_base.stl" scale="0.001 0.001 0.001"/>
+          <box size="0.05 0.035 0.025"/>
         </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -357,7 +357,7 @@
     </visual>
     <collision>
       <geometry>
-          <mesh filename="package://armando_description/meshes/the_crawer.stl" scale="0.001 0.001 0.001"/>
+          <box size="0.025 0.10 0.015"/>
         </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -387,8 +387,8 @@
     </visual>
     <collision>
       <geometry>
-          <mesh filename="package://armando_description/meshes/the_crawer.stl" scale="0.001 0.001 0.001"/>
-        </geometry>
+          <box size="0.025 0.10 0.015"/>
+      </geometry>    
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
     
