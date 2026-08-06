@@ -9,6 +9,12 @@ import os
 def generate_launch_description():
 
     package_path = get_package_share_directory("armando_description")
+    
+    rviz_config_path = os.path.join(
+        package_path,
+        "config",
+        "armando.rviz"
+    )
 
     urdf_path = os.path.join(
         package_path,
@@ -39,7 +45,9 @@ def generate_launch_description():
         Node(
             package="rviz2",
             executable="rviz2",
-            output="screen"
+            output="screen",
+            arguments=["-d", rviz_config_path]
+            
         )
 
     ])
