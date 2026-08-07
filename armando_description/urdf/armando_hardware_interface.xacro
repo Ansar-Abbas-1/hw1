@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+    <!--
+        Armando ROS2 Control Hardware Interface
+
+        Defines the connection between:
+        ROS2 controllers
+              |
+        ros2_control
+              |
+        Ignition Gazebo
+              |
+        Armando joints
+    -->
+
+
+    <xacro:macro name="armando_hardware_interface">
+
+
+        <ros2_control 
+            name="ArmandoHardwareInterface"
+            type="system">
+
+
+            <hardware>
+
+                <!-- Gazebo Ignition ROS2 control plugin -->
+                <plugin>
+                    ign_ros2_control/IgnitionSystem
+                </plugin>
+
+            </hardware>
+
+
+            <!-- Joint 0 -->
+
+            <joint name="j0">
+
+                <command_interface name="position">
+                </command_interface>
+
+                <state_interface name="position">
+                </state_interface>
+
+                <state_interface name="velocity">
+                </state_interface>
+
+            </joint>
+
+
+
+            <!-- Joint 1 -->
+
+            <joint name="j1">
+
+                <command_interface name="position">
+                </command_interface>
+
+                <state_interface name="position">
+                </state_interface>
+
+                <state_interface name="velocity">
+                </state_interface>
+
+            </joint>
+
+
+
+            <!-- Joint 2 -->
+
+            <joint name="j2">
+
+                <command_interface name="position">
+                </command_interface>
+
+                <state_interface name="position">
+                </state_interface>
+
+                <state_interface name="velocity">
+                </state_interface>
+
+            </joint>
+
+
+
+            <!-- Joint 3 -->
+
+            <joint name="j3">
+
+                <command_interface name="position">
+                </command_interface>
+
+                <state_interface name="position">
+                </state_interface>
+
+                <state_interface name="velocity">
+                </state_interface>
+
+            </joint>
+
+
+        </ros2_control>
+
+
+    </xacro:macro>
+
+
+</robot>
