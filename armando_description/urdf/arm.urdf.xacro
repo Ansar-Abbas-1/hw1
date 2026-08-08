@@ -400,5 +400,27 @@
       <inertia ixx="6.90013881e-05" ixy="0.0" ixz="0.0" iyy="1.24554875e-04" iyz="0.0" izz="1.04295793e-04"/>
     </inertial>
   </link>
+
 <xacro:armando_hardware_interface/>  
+
+
+<gazebo>
+
+    <plugin
+        
+        filename="gz_ros2_control-system"
+        name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+
+       <parameters>
+           $(find armando_description)/config/armando_controllers.yaml
+       </parameters>
+
+       <controller_manager_prefix_node_name>
+           controller_manager
+       </controller_manager_prefix_node_name>
+
+   </plugin>
+
+</gazebo>
+
 </robot>

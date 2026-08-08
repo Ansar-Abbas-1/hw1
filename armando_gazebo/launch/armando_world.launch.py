@@ -1,12 +1,20 @@
+
 from launch import LaunchDescription
 
-from launch.actions import IncludeLaunchDescription, SetEnvironmentVariable
+from launch.actions import (
+    IncludeLaunchDescription,
+    SetEnvironmentVariable,
+    RegisterEventHandler
+)
+
+from launch.event_handlers import OnProcessExit
 
 from launch.substitutions import PathJoinSubstitution, Command
 
 from launch_ros.actions import Node
 
 from launch_ros.substitutions import FindPackageShare
+from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
@@ -24,13 +32,14 @@ def generate_launch_description():
     )
 
 
+
     # Read URDF file and create robot_description parameter
     robot_description = Command([
         'xacro ',
         PathJoinSubstitution([
             FindPackageShare('armando_description'),
             'urdf',
-            'arm.urdf'
+            'arm.urdf.xacro'
         ])
     ])
 
@@ -48,15 +57,20 @@ def generate_launch_description():
     )
 
 
+   
+    
     # Publish robot description
     robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         parameters=[
             {
-                'robot_description': robot_description
+                'robot_description': ParameterValue(
+                    robot_description,
+                    value_type=str
+                )
             }
-        ],
+    ],
         output='screen'
     )
 
@@ -73,11 +87,64 @@ def generate_launch_description():
         ],
         output='screen'
     )
+    
+    
+    
+    joint_state_broadcaster = Node(
+    package='controller_manager',
+    executable='spawner',
+    arguments=[
+        'joint_state_broadcaster',
+        '--controller-manager',
+        '/controller_manager'
+    ],
+    output='screen'
+    )
+    
+    
+    position_controller = Node(
+    package='controller_manager',
+    executable='spawner',
+    arguments=[
+        'position_controller',
+        '--controller-manager',
+        '/controller_manager'
+    ],
+    output='screen'
+    )
+
+
+    delay_joint_state_broadcaster = RegisterEventHandler(
+        event_handler=OnProcessExit(
+            target_action=spawn_robot,
+            on_exit=[
+                joint_state_broadcaster
+            ]
+        )
+    )
+
+
+    delay_position_controller = RegisterEventHandler(
+        event_handler=OnProcessExit(
+            target_action=spawn_robot,
+            on_exit=[
+                position_controller
+            ]
+        )
+    )
+
 
 
     return LaunchDescription([
         gazebo_resource_path,
+
         gazebo,
+
         robot_state_publisher,
-        spawn_robot
+
+        spawn_robot,
+
+        delay_joint_state_broadcaster,
+
+        delay_position_controller
     ])
