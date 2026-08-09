@@ -2,6 +2,7 @@
 
 <robot name="armando" xmlns:xacro="http://www.ros.org/wiki/xacro">
 <xacro:include filename="$(find armando_description)/urdf/armando_hardware_interface.xacro"/>
+<xacro:include filename="$(find armando_gazebo)/urdf/armando_camera.xacro"/>
 
 
 
@@ -443,6 +444,7 @@
   </link>
 
 <xacro:armando_hardware_interface/>  
+<xacro:armando_camera/>
 
 
 <gazebo>
