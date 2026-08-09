@@ -135,6 +135,17 @@ def generate_launch_description():
 
 
 
+    ros_gz_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/camera/image_raw@sensor_msgs/msg/Image@gz.msgs.Image'
+        ],
+        output='screen'
+    )
+
+
+
     return LaunchDescription([
         gazebo_resource_path,
 
@@ -146,5 +157,6 @@ def generate_launch_description():
 
         delay_joint_state_broadcaster,
 
-        delay_position_controller
+        delay_position_controller,
+        ros_gz_bridge
     ])

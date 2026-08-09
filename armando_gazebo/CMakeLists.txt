@@ -10,7 +10,9 @@ find_package(ament_cmake REQUIRED)
 
 # Install the launch directory so ROS 2 can find launch files after building
 install(
-  DIRECTORY launch
+  DIRECTORY 
+  launch
+  urdf
   DESTINATION share/${PROJECT_NAME}
 )
 
