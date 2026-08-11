@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(trajectory_msgs REQUIRED)
 
 # Create the arm controller executable
 add_executable(arm_controller_node
@@ -21,6 +22,7 @@ ament_target_dependencies(arm_controller_node
   rclcpp
   sensor_msgs
   std_msgs
+  trajectory_msgs
 )
 
 # Install the executable
